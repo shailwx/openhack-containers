@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: trip-viewer
+
+spec:
+
+  selector:
+
+    matchLabels:
+
+      run: trip-viewer
+
+  replicas: 2
+
+  template:
+
+    metadata:
+
+      labels:
+
+        run: trip-viewer
+
+    spec:
+
+      containers:
+
+       name: trip-viewer
+
+       image: registryzwl7908.azurecr.io/tripinsights/poi:v2.0ar
+
+        ports:
+
+          containerPort: 80
