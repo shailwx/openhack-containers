@@ -34,7 +34,7 @@ kind: Service
 metadata:
   name: trips
   labels:
-    run: trips
+    app: trips
 spec:
   type: NodePort
   ports:
@@ -43,5 +43,5 @@ spec:
     protocol: TCP
     name: http
   selector:
-    run: trips
+    app: trips
 ---
