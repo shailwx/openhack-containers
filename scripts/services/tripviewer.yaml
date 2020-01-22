@@ -15,26 +15,17 @@ spec:
       containers:
       - name: trip-viewer
         image: registryzwl7908.azurecr.io/tripinsights/tripviewer:1.0
-        env: 
-        - name: SQL_USER
-          value: "sqladminzWl7908"
-        - name: SQL_PASSWORD
-          value: "yL5at0Tl6"
-        - name: SQL_SERVER
-          value: "sqlserverzwl7908.database.windows.net"
-        - name:  SQL_DBNAME
-          value: "mydrivingDB"
         ports:
         - containerPort: 80
         
-
-
 apiVersion: v1
 kind: Service
 metadata:
   name: trip-viewer-web
 spec:
+  type: loadbalancer
+  selector:
+    app: trip-viewer  
   ports:
   - port: 80
-  selector:
-    app: trip-viewer
+  
