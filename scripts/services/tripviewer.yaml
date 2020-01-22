@@ -22,7 +22,7 @@ spec:
           value: "http://trips.cluster.svc.local"
         - name: USERPROFILE_API_ENDPOINT
           value: "http://userprofile.cluster.svc.local"
-        
+---       
 apiVersion: v1
 kind: Service
 metadata:
