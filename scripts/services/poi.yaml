@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: poi
+
+spec:
+
+  selector:
+
+    matchLabels:
+
+      run: poi
+
+  replicas: 2
+
+  template:
+
+    metadata:
+
+      labels:
+
+        run: poi
+
+    spec:
+
+      containers:
+
+       name: poi
+
+       image: registryzwl7908.azurecr.io/tripinsights/poi:v2.0ar
+
+        ports:
+
+          containerPort: 80
+
+apiVersion: v1
+
+kind: Service
+
+metadata:
+
+  name: poi
+
+  namespace: poi
+spec:
+
+  ports:
+
+  - port: 80
+
+  selector:
+
+    app: poi
