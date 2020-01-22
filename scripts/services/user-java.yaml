@@ -17,9 +17,15 @@ spec:
       containers:
       - name: poi
         image: registryzwl7908.azurecr.io/tripinsights/user-java:1.0
-        envFrom:
-        - secretRef:
-            name: sql
+        env: 
+        - name: SQL_USER
+          value: "sqladminzWl7908"
+        - name: SQL_PASSWORD
+          value: "yL5at0Tl6"
+        - name: SQL_SERVER
+          value: "sqlserverzwl7908.database.windows.net"
+        - name:  SQL_DBNAME
+          value: "mydrivingDB"
         ports:
         - containerPort: 80
           name: poi
