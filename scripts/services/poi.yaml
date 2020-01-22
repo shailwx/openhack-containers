@@ -18,18 +18,27 @@ spec:
       containers:
       - name: poi
         image: registryzwl7908.azurecr.io/tripinsights/poi:v2.0ar
-        env: 
-        - name: SQL_USER
-          value: "sqladminzWl7908"
-        - name: SQL_PASSWORD
-          value: "yL5at0Tl6"
-        - name: SQL_SERVER
-          value: "sqlserverzwl7908.database.windows.net"
-        - name:  SQL_DBNAME
-          value: "mydrivingDB"
         ports:
         - containerPort: 80
           name: poi
+        volumeMounts:
+        - name: keyvault
+          mountPath: /secrets
+          readOnly: true
+      volumes:
+      - name: keyvault
+        flexVolume:
+          driver: "azure/kv"
+          options:
+            keyvaultname: "WA8KSKeyVault"
+            keyvaultobjectnames: "SQLUSER;SQLPASSWORD;SQLSERVER;SQLDBNAME"
+            keyvaultobjecttypes: "secret;secret;secret;secret"
+            keyvaultobjectaliases: "SQL_USER;SQL_PASSWORD;SQL_SERVER;SQL_DBNAME"
+            resourcegroup: "teamResources"
+            subscriptionid: "67db0cb5-d026-4e61-9c32-5d98c5df9058"
+            tenantid: "ac3ae993-286f-431d-9c49-cfb474e9b77c"
+            usevmmanagedidentity: "true"      
+            vmmanagedidentityclientid: "c8ebe526-b662-48a3-ad60-cc6290e9aeed"  
 ---
 apiVersion: v1
 kind: Service
