@@ -16,7 +16,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: poi
-        image: registryzwl7908.azurecr.io/tripinsights/poi:2.0ar
+        image: registryzwl7908.azurecr.io/tripinsights/poi:v2.0ar
         env: 
         - name: SQL_USER
           value: "sqladminzWl7908"
