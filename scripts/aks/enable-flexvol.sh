@@ -1,5 +1,6 @@
 #Deploy flexvol into the cluster
-kubectl create -f https://raw.githubusercontent.com/Azure/kubernetes-keyvault-flexvol/master/deployment/kv-flexvol-installer.yaml (https://github.com/Azure/kubernetes-keyvault-flexvol)
+#(https://github.com/Azure/kubernetes-keyvault-flexvol)
+kubectl create -f https://raw.githubusercontent.com/Azure/kubernetes-keyvault-flexvol/master/deployment/kv-flexvol-installer.yaml
 
 #User managed identity resource id and key vault (you don't need to change since we are sharing)
 umi="/subscriptions/67db0cb5-d026-4e61-9c32-5d98c5df9058/resourcegroups/teamResources/providers/Microsoft.ManagedIdentity/userAssignedIdentities/k8s-flexvol"
