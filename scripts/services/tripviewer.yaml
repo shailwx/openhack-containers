@@ -17,6 +17,11 @@ spec:
         image: registryzwl7908.azurecr.io/tripinsights/tripviewer:1.0
         ports:
         - containerPort: 80
+        env:
+        - name: TRIPS_API_ENDPOINT
+          value: "http://trips"
+        - name: USERPROFILE_API_ENDPOINT
+          value: "http://userprofile"
         
 apiVersion: v1
 kind: Service
