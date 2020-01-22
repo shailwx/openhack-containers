@@ -5,12 +5,12 @@ metadata:
 spec:
   selector:
     matchLabels:
-      run: tripviewer
+      app: tripviewer
   replicas: 2
   template:
     metadata:
       labels:
-        run: tripviewer
+        app: tripviewer
     spec:
       containers:
       - name: tripviewer
