@@ -17,3 +17,27 @@ spec:
         image: registryzwl7908.azurecr.io/tripinsights/userprofile:1.0
         ports:
         - containerPort: 80
+        env:
+        - name: SQL_USER
+          value: "sqladminzWl7908"
+        - name: SQL_PASSWORD
+          value: "yL5at0Tl6"
+        - name: SQL_SERVER
+          value: "sqlserverzwl7908.database.windows.net"
+        - name:  SQL_DBNAME
+          value: "mydrivingDB"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: userprofile
+  labels:
+    run: userprofile
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+    name: http
+  selector:
+    run: userprofile
