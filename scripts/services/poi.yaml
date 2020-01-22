@@ -4,7 +4,7 @@ kind: Deployment
 
 metadata:
 
-  name: trip-viewer
+  name: poi
 
 spec:
 
@@ -12,7 +12,7 @@ spec:
 
     matchLabels:
 
-      run: trip-viewer
+      run: poi
 
   replicas: 2
 
@@ -22,13 +22,13 @@ spec:
 
       labels:
 
-        run: trip-viewer
+        run: poi
 
     spec:
 
       containers:
 
-       name: trip-viewer
+       name: poi
 
        image: registryzwl7908.azurecr.io/tripinsights/poi:v2.0ar
 
