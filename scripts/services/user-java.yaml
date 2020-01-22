@@ -28,13 +28,12 @@ spec:
           value: "mydrivingDB"
         ports:
         - containerPort: 80
-          name: poi
+          name: user-java
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: user-java
-  namespace: tripviewer
 spec:
   ports:
   - port: 80
