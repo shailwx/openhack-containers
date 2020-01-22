@@ -11,3 +11,10 @@ metadata:
   name: "web"
   labels:
     name: "web"
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: "ingress"
+  labels:
+    name: "ingress"

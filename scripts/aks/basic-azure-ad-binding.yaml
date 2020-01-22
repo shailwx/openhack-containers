@@ -9,4 +9,4 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: hacker5pjs@OTAPRD362ops.onmicrosoft.com@OTAPRD362ops.onmicrosoft.com
+  name: hacker5pjs@OTAPRD362ops.onmicrosoft.com
