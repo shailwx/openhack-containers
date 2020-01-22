@@ -1,56 +1,41 @@
 apiVersion: apps/v1
-
 kind: Deployment
-
 metadata:
-
   name: poi
-
 spec:
-
+  replicas: 3
   selector:
-
     matchLabels:
-
-      run: poi
-
-  replicas: 2
-
+      app: poi
   template:
-
     metadata:
-
       labels:
-
-        run: poi
-
+        app: poi
     spec:
-
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
       containers:
-
-       name: poi
-
-       image: registryzwl7908.azurecr.io/tripinsights/poi:v2.0ar
-
+      - name: poi
+        image: registryzwl7908.azurecr.io/tripinsights/poi:2.0ar
+        env: 
+        - name: SQL_USER
+          value: "sqladminzWl7908"
+        - name: SQL_PASSWORD
+          value: "yL5at0Tl6"
+        - name: SQL_SERVER
+          value: "sqlserverzwl7908.database.windows.net"
+        - name:  SQL_DBNAME
+          value: "mydrivingDB"
         ports:
-
-          containerPort: 80
-
+        - containerPort: 80
+          name: poi
+---
 apiVersion: v1
-
 kind: Service
-
 metadata:
-
   name: poi
-
-  namespace: poi
 spec:
-
   ports:
-
   - port: 80
-
   selector:
-
     app: poi
