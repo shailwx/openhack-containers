@@ -19,9 +19,9 @@ spec:
         - containerPort: 80
         env:
         - name: TRIPS_API_ENDPOINT
-          value: "http://trips.default.cluster.svc.local"
+          value: "http://trips"
         - name: USERPROFILE_API_ENDPOINT
-          value: "http://userprofile.default.cluster.svc.local"
+          value: "http://userprofile"
 ---       
 apiVersion: v1
 kind: Service
