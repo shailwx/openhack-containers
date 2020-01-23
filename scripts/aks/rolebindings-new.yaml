@@ -27,7 +27,6 @@ subjects:
   namespace: api
   name: 1c4d8d52-8602-40a6-abd7-dd778407dd41
   apiGroup: rbac.authorization.k8s.io
-  
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
